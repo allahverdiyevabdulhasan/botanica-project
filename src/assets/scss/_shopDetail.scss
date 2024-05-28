@@ -1,0 +1,55 @@
+.shop_detail {
+    .banner {
+        background-image: url('../images/breadcrumb.webp');
+        padding: 250px 0 100px 0;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img_card {
+        border: 1px solid #ECECEC;
+        border-radius: 7px;
+        padding: 5px;
+    }
+
+    .detail_content {
+        .head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .wishlist {
+                border: 1px solid #ECECEC;
+                padding: 14px;
+                border-radius: 50%;
+
+                &:hover {
+                    cursor: pointer;
+                    a {
+                        color: #7A3E1C;
+                    }
+                }
+
+                a {
+                    color: #AFAFAF;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 20px;
+                    transition: all .3s;
+                }
+            }
+        }
+
+        .price{
+            color: #7A3E1C;
+            font-size: 30px;
+            font-weight: 700;
+        }
+    }
+}
