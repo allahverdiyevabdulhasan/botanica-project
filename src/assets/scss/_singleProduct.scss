@@ -54,9 +54,10 @@
                 }
             }
 
-            h5{
+            a{
                 color: #222222;
-                font-size: 16px;
+                font-size: 17px;
+                font-weight: 600;
 
                 &:hover{
                     color: #5B2800;
@@ -77,6 +78,8 @@
                 .hidden-icons {
                     opacity: 1;
                 }
+
+                
 
                 .icons {
                     background-color: #ECECEC;

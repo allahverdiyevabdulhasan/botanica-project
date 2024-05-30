@@ -24,6 +24,7 @@ import Register from '../auth/Register';
 import ForgotPass from '../auth/ForgotPass';
 import Wishlist from '../pages/Wishlist';
 import ShopDetail from '../pages/ShopDetail';
+import Basket from '../pages/Basket';
 
 const AppRouter = () => {
   return (
@@ -46,6 +47,7 @@ const AppRouter = () => {
         <Route element={<ForgotPass/>} path='/reset_password'/>
         <Route element={<Wishlist/>} path='/wishlist'/>
         <Route element={<ShopDetail/>} path='/shop/:slug'/>
+        <Route element={<Basket/>} path='/basket'/>
       </Routes>
       <GoToTop/>
       <Footer/>

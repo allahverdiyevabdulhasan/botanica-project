@@ -10,10 +10,15 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { GoChevronRight } from "react-icons/go";
 import { FaFacebookF, FaTiktok, FaTwitter, FaInstagram } from "react-icons/fa";
 import { Button, Modal } from 'antd';
+import { useCart } from 'react-use-cart';
+import { FaRegTrashCan } from "react-icons/fa6";
+import slugify from 'react-slugify';
 
 
 const Header = () => {
-    
+
+    const { isEmpty, items, updateItemQuantity, removeItem, cartTotal, emptyCart, totalItems } = useCart();
+
 
     const location = useLocation();
     if (
@@ -103,14 +108,9 @@ const Header = () => {
                                 <img src={logo} alt="logo" />
                             </div>
                             <div className='nav-right' >
-                                {/* data-bs-toggle="modal" data-bs-target="#exampleModal" */}
                                 <Link to='/login' className='icon '>
                                     <AiOutlineUser className='' />
                                 </Link>
-
-                       
-                              
-                              
 
 
                                 <div className='icon position-relative'>
@@ -120,16 +120,46 @@ const Header = () => {
 
                                 <div className='icon position-relative' data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                                     <FaBasketShopping />
-                                    <span className='position-absolute top-0 translate-middle badge rounded-pill'>0</span>
+                                    <span className='position-absolute top-0 translate-middle badge rounded-pill'> {totalItems}</span>
 
                                 </div>
-                                <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                                    <div className="offcanvas-header">
+                                <div className="offcanvas offcanvas-end basket_menu" tabIndex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                                    <div className="offcanvas-header  d-flex gap-3">
+                                        <div className='position-relative '>
+                                            <FaBasketShopping className='fs-2' />
+                                            <span className='position-absolute top-0 translate-middle badge rounded-pill'> {totalItems}</span>
+                                        </div>
                                         <h6 className="offcanvas-title" id="offcanvasRightLabel">SHOPPİNG CART</h6>
 
                                     </div>
-                                    <div className="offcanvas-body">
-                                        ...
+                                    <div className="offcanvas-body ">
+                                        {items.map(item => (
+                                            <div className='basket'>
+                                                <div className='d-flex justify-content-between align-items-center shop-cards mb-3'>
+                                                    <div><img width={100} src={item.front_img} alt={item.title} /></div>
+                                                    <div>
+                                                        <NavLink to={`/shop/${slugify(item.title)}`}>{item.title}</NavLink>
+                                                        <span>{item.quantity} x <b>${item.price}</b></span>
+                                                    </div>
+                                                    <div><FaRegTrashCan onClick={() => { removeItem(item.id) }} /></div>
+
+
+                                                </div>
+
+                                            </div>
+
+                                        ))}
+                                    </div>
+                                    <div className='basket_subtotal p-3'>
+                                        <div className='d-flex justify-content-between'>
+                                            <p>SUBTOTAL:</p>
+                                            <span>${cartTotal}</span>
+                                        </div>
+
+                                        <div className='basket_footer'>
+                                            <Link to="/basket" className='view_cart'>VIEW CART</Link>
+                                            <Link className='cart_ckeck'>CHECKOUT</Link>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -168,7 +198,8 @@ const Header = () => {
 
                             </div>
 
-                            <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+
+                            <div className="offcanvas offcanvas-start " tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                                 <div className="offcanvas-header d-flex justify-content-end">
                                     <TfiClose data-bs-dismiss="offcanvas" aria-label="Close" className='close_btn' />
 
@@ -231,6 +262,7 @@ const Header = () => {
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </nav>
                 </header>

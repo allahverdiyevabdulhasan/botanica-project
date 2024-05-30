@@ -110,6 +110,93 @@
                 }
             }
 
+
+
+        }
+
+
+        .basket_menu {
+            .shop-cards {
+                border: 1px solid #EAEAEA;
+                border-radius: 8px;
+                padding: 10px;
+
+                a {
+                    display: block;
+                    padding: 0;
+                    margin: 0;
+                    height: 20px;
+                    color: #222222;
+                    text-transform: capitalize;
+
+                    &:hover {
+                        background-color: transparent;
+                        color: #5B2800;
+                    }
+
+                }
+            }
+
+            .badge {
+                background-color: #5B2800;
+                color: white;
+                right: -15px;
+            }
+
+            .basket_subtotal {
+                background-color: #F2F2F2;
+
+                p {
+                    color: #222222;
+                    font-size: 13px;
+                    font-weight: 600;
+                }
+
+                span {
+                    color: #222222;
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+
+                .basket_footer {
+                    .view_cart {
+                        display: block;
+                        border: 1px solid #DFE1E6;
+                        border-radius: 5px !important;
+                        background-color: white;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: #5B2800;
+                        font-size: 13px;
+                        font-weight: 700;
+                        transition: all .3s;
+
+                        &:hover {
+                            background-color: #5B2800;
+                            color: white;
+                        }
+                    }
+
+                    .cart_ckeck {
+                        display: block;
+                        border-radius: 5px !important;
+                        background-color: #5B2800;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: white;
+                        font-size: 13px;
+                        font-weight: 700;
+                        transition: all .3s;
+
+
+                        &:hover {
+                            background-color: #FABE17;
+                        }
+                    }
+                }
+            }
         }
 
         .nav_footer {
@@ -142,9 +229,9 @@
 }
 
 
-.sm_header{
-    nav{
-        .res_menu{
+.sm_header {
+    nav {
+        .res_menu {
             font-size: 25px;
         }
 
@@ -183,11 +270,13 @@
                 color: white;
             }
         }
-        .offcanvas{
 
-            .close_btn{
+        .offcanvas {
+
+            .close_btn {
                 cursor: pointer;
             }
+
             .active {
                 width: 100%;
                 background: #FABE17 !important;
@@ -216,7 +305,7 @@
             }
         }
 
-        .nav_footer{
+        .nav_footer {
             p {
                 font-size: 15px;
                 color: #434343;

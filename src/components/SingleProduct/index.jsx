@@ -7,14 +7,15 @@ import { IoHeartSharp } from "react-icons/io5";
 import { useWishlist } from 'react-use-wishlist';
 import { Link, NavLink } from 'react-router-dom';
 import slugify from 'react-slugify';
+import { useCart } from 'react-use-cart';
 
 
 
 const SingleProduct = ({shopData}) => {
-
   const { addWishlistItem } = useWishlist();
+  const {addItem} = useCart();
   return (
-    <NavLink to={`/shop/${slugify(shopData.title)}`} className=" pt-5 product_card">
+    <div  className=" pt-5 product_card">
       <div className="card">
         <div className="wrapper">
           <div className='d-flex justify-content-end'>
@@ -36,7 +37,7 @@ const SingleProduct = ({shopData}) => {
               <IoStarSharp />
               <IoStarSharp /> <sup>(0)</sup>
             </div>
-            <h5>{shopData?.title}</h5>
+            <NavLink to={`/shop/${slugify(shopData.title)}`}>{shopData?.title}</NavLink>
           </div>
           <div className=''>
             <span>${shopData?.price}</span>
@@ -50,8 +51,8 @@ const SingleProduct = ({shopData}) => {
                   <MdCompareArrows />
                 </div>
               </div>
-              <div className='icons'>
-                <FaBasketShopping />
+              <div className='icons' onClick={() =>{addItem(shopData)}}>
+                < FaBasketShopping />
               </div>
             </div>
 
@@ -59,7 +60,7 @@ const SingleProduct = ({shopData}) => {
         </div>
       </div>  
 
-    </NavLink>
+    </div>
 
   )
 }

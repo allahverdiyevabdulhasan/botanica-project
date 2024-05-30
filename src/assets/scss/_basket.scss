@@ -1,0 +1,38 @@
+.basket{
+    .banner{
+        background-image: url('../images/breadcrumb.webp');
+        padding: 250px 0 100px 0;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .quantity_btn{
+        background-color: #F2F2F2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-radius: 25px;
+
+        button{
+            border: none;
+        }
+    }
+
+    thead{
+        tr{
+            background-color: #F2F2F2;
+        }
+    }
+
+    .trash_btn{
+        cursor: pointer;
+    }
+
+
+}
